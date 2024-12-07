@@ -51,7 +51,7 @@ public class EnemyDamage : MonoBehaviour
         }
     }
 
-    private void DestroyEnemy()
+    public void DestroyEnemy()
     {
         CanvasGame.instance.IncreaseScore((int)enemiesLifes[gameLevel]);
         GameObject goExplosion = Instantiate(explosion);

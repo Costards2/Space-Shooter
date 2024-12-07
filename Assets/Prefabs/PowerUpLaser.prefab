@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3671547357791641383
+--- !u!1 &7608557030055091436
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4024884097294440153}
-  - component: {fileID: 3216352061316791676}
+  - component: {fileID: 6968673474380420640}
+  - component: {fileID: 2690069120564279462}
+  - component: {fileID: 2134539442939309333}
+  - component: {fileID: 7670126648125454444}
+  - component: {fileID: 431573347548973443}
+  - component: {fileID: 3433729501638559305}
   m_Layer: 0
-  m_Name: Laser Body
+  m_Name: PowerUpLaser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4024884097294440153
+--- !u!4 &6968673474380420640
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3671547357791641383}
+  m_GameObject: {fileID: 7608557030055091436}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.2500001, y: 1.2500001, z: 1.2500001}
+  m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1238714998798160077}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3216352061316791676
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!212 &2690069120564279462
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3671547357791641383}
+  m_GameObject: {fileID: 7608557030055091436}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -73,10 +77,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 974a1037ac009a845b34bef069fbade0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d866a6b0193024141b306b69f7db0137, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
@@ -84,49 +88,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &7343667603345612402
-GameObject:
+--- !u!58 &2134539442939309333
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1238714998798160077}
-  - component: {fileID: 5982366776450785535}
-  - component: {fileID: 3868852764236797204}
-  - component: {fileID: 808044306100068169}
-  - component: {fileID: -5857109731869673906}
-  m_Layer: 0
-  m_Name: Ship's Laser
-  m_TagString: Laser
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1238714998798160077
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7343667603345612402}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4024884097294440153}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &5982366776450785535
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7343667603345612402}
+  m_GameObject: {fileID: 7608557030055091436}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -152,17 +120,17 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.004096985, y: 0.00000011920929}
-  m_Size: {x: 0.14764929, y: 0.63945436}
-  m_Direction: 0
---- !u!50 &3868852764236797204
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.15
+--- !u!50 &7670126648125454444
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7343667603345612402}
+  m_GameObject: {fileID: 7608557030055091436}
   m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -182,39 +150,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &808044306100068169
+--- !u!114 &431573347548973443
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7343667603345612402}
+  m_GameObject: {fileID: 7608557030055091436}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d4776835289f37469ad2254065debdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 25
-  existanceTime: 0.6
---- !u!114 &-5857109731869673906
+  speed: 6
+  existanceTime: 6
+--- !u!114 &3433729501638559305
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7343667603345612402}
+  m_GameObject: {fileID: 7608557030055091436}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ada42b061760a70419d8bd34c85974be, type: 3}
+  m_Script: {fileID: 11500000, guid: c83ff75ff3d84c34a8764368b6a31361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageValues:
-  - 25
-  - 50
-  - 200
-  damage: 0
-  lasers:
-  - {fileID: 21300000, guid: 974a1037ac009a845b34bef069fbade0, type: 3}
-  - {fileID: 21300000, guid: 5070102218d2d8e4f811de64f9ca0a88, type: 3}
-  - {fileID: 21300000, guid: 33ccae090be2efb49a8c93f5782a356f, type: 3}
-  spriteRenderer: {fileID: 3216352061316791676}

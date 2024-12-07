@@ -15,8 +15,7 @@ public class ShootLaser : MonoBehaviour
     {
         if (Time.time > waitTime)
         {
-            GameObject firstLaser = Instantiate(laser);
-            firstLaser.transform.position = transform.position + Vector3.up;
+            Shoot();
 
             waitTime = Time.time + shootTime;
         }
@@ -26,6 +25,30 @@ public class ShootLaser : MonoBehaviour
     {
         laserLevel++;
         laserLevel = laserLevel > 5 ? 5 : laserLevel;
+    }
+
+    private void Shoot()
+    {
+        GameObject ls = Instantiate(laser);
+        ls.transform.position = transform.position + Vector3.up;
+
+        if (laserLevel == 1) return;
+        InstatiateDoubleLaser(-0.195f, 0.851f);
+        if (laserLevel == 2) return;
+        InstatiateDoubleLaser(-0.378f, 0.575f);
+        if (laserLevel == 3) return;
+        InstatiateDoubleLaser(-0.571f, 0.323f);
+        if (laserLevel == 4) return;
+        InstatiateDoubleLaser(-0.74f, -0.018f);
+
+    }
+
+    private void InstatiateDoubleLaser(float x, float y)
+    {
+        GameObject laser1 = Instantiate(laser);
+        laser1.transform.position = transform.position + new Vector3(x,y,0);
+        GameObject laser2 = Instantiate(laser);
+        laser2.transform.position = transform.position + new Vector3(x, y * -1, 0);
     }
 
     public void LevelDown()

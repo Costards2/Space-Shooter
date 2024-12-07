@@ -52,6 +52,8 @@ public class CanvasGame : MonoBehaviour
 
     public void DecreasePlayerLife()
     {
+        if (PlayerManager.playerShield.isActive == true) return;
+
         if(playerLife <= 0)
         {
             PlayerManager.instance.DestroyPlayer();

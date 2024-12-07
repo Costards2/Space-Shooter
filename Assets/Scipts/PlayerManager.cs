@@ -5,17 +5,22 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager instance;
-
     public static MoveShip moveShip;
     public static ShootLaser shootLaser;
+    public static PlayerShield playerShield;
 
     public GameObject explosion;
+
+    public int laserPowerLevel = 0;
 
     private void Awake()
     {
         if (instance == null)
         {
-            instance = this; 
+            instance = this;
+            moveShip = GetComponent<MoveShip>();
+            shootLaser = GetComponent<ShootLaser>();
+            playerShield = GetComponentInChildren<PlayerShield>();
             return;
         }
         else
@@ -24,22 +29,24 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        moveShip = GetComponent<MoveShip>();
-        shootLaser = GetComponent<ShootLaser>();
-    }
-
-    void Update()
-    {
-        
-    }
-
     public void DestroyPlayer()
     {
         GameObject go = Instantiate(explosion);
         go.transform.position = transform.position;
 
         Destroy(gameObject);
+    }
+
+    public void EnableLaserLevel(int level)
+    {
+        laserPowerLevel = level;
+        StopAllCoroutines();
+        StartCoroutine(ResetPlayerPower());
+    }
+
+    IEnumerator ResetPlayerPower()
+    {
+        yield return new WaitForSeconds(3f);
+        laserPowerLevel = 0;
     }
 }
