@@ -8,7 +8,7 @@ public class InstantiateObject : MonoBehaviour
     private GameObject instatiatedObject;
 
     public float timeToAppear;
-    private float waitTime;
+    protected float waitTime;
 
     public bool waitFirst;
 

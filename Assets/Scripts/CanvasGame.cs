@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CanvasGame : MonoBehaviour
 {
@@ -11,6 +12,11 @@ public class CanvasGame : MonoBehaviour
 
     public TextMeshProUGUI gameScoreTxt;
     public TextMeshProUGUI gameLevelText;
+    public GameObject topPanel;
+    public GameObject gameOverPanel;
+    public TextMeshProUGUI txtScoreEndGame;
+    public TextMeshProUGUI txtBestScore;
+
     public float timeDificulty;
 
     private int playerLife;
@@ -42,6 +48,9 @@ public class CanvasGame : MonoBehaviour
         gameLevelText.text = $"Nv. {gameLevel}";
 
         StartCoroutine(IncreaseDificulty());    
+
+        topPanel.SetActive(true);
+        gameOverPanel.SetActive(false);
     }
 
     public void IncreaseScore(int score)
@@ -57,6 +66,7 @@ public class CanvasGame : MonoBehaviour
         if(playerLife <= 0)
         {
             PlayerManager.instance.DestroyPlayer();
+            ShowGameOverScreen();
         }
         else
         {
@@ -84,5 +94,24 @@ public class CanvasGame : MonoBehaviour
             }
             gameLevelText.text = $"Nv. {gameLevel}";
         }
+    }
+
+    private void ShowGameOverScreen()
+    {
+        topPanel.SetActive(false);
+        gameOverPanel.SetActive(true);
+        txtScoreEndGame.text = $"{gameScore}";
+        DBManager.SaveScore(gameScore);
+        txtBestScore.text = $"{DBManager.GetSavedScore()}";
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void ReStartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
