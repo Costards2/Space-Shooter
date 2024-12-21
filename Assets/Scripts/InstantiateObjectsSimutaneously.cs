@@ -10,7 +10,9 @@ public class InstantiateObjectsSimutaneously : InstantiateObject
 
     void Update()
     {
-        if(Time.time > waitTime)
+        if (CanvasGame.instance.bossActive == true) return;
+
+        if (Time.time > waitTime)
         {
             waitTime = Time.time + timeToAppear;
         }

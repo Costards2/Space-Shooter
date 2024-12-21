@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class CanvasGame : MonoBehaviour
 {
     public static CanvasGame instance;
+    public static BossLifePanel bossLifePanel;
 
     public GameObject[] lifeImagesPlayer;
 
@@ -23,6 +24,8 @@ public class CanvasGame : MonoBehaviour
     private int gameLevel = 1;
     private int gameScore;
 
+    public bool bossActive;
+
     public int GameLevel
     {
         get { return gameLevel; }
@@ -32,6 +35,7 @@ public class CanvasGame : MonoBehaviour
     {
         if (instance == null)
         {
+            bossLifePanel = GetComponent<BossLifePanel>();
             instance = this;
             return;
         }

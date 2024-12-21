@@ -12,6 +12,8 @@ public class InstantiateObject : MonoBehaviour
 
     public bool waitFirst;
 
+    public bool powerUpObject;
+
     void Start()
     {
         if (waitFirst)
@@ -22,6 +24,8 @@ public class InstantiateObject : MonoBehaviour
 
     void Update()
     {
+        if (CanvasGame.instance.bossActive == true && powerUpObject == false) return;
+       
         if (Time.time > waitTime)
         {
             instatiatedObject = Instantiate(objectToInstantiate);
