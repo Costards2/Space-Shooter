@@ -14,6 +14,7 @@ public class InstantiateObjectsSimutaneously : InstantiateObject
 
         if (Time.time > waitTime)
         {
+            StartCoroutine(InstatiateObjectsSimutaneously());
             waitTime = Time.time + timeToAppear;
         }
     }
