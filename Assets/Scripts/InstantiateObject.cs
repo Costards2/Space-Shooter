@@ -9,6 +9,7 @@ public class InstantiateObject : MonoBehaviour
 
     public float timeToAppear;
     protected float waitTime;
+    public float initialPositionY = 8.5f;
 
     public bool waitFirst;
 
@@ -30,7 +31,7 @@ public class InstantiateObject : MonoBehaviour
         {
             instatiatedObject = Instantiate(objectToInstantiate);
             float positionX = Random.Range(-3.5f, 3.5f);
-            instatiatedObject.transform.position = new Vector3(positionX, 8.5f, 0);
+            instatiatedObject.transform.position = new Vector3(positionX, initialPositionY, 0);
             waitTime = Time.time + timeToAppear;
         }
     }

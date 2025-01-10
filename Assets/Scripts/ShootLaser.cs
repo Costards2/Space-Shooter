@@ -48,7 +48,7 @@ public class ShootLaser : MonoBehaviour
         GameObject laser1 = Instantiate(laser);
         laser1.transform.position = transform.position + new Vector3(x,y,0);
         GameObject laser2 = Instantiate(laser);
-        laser2.transform.position = transform.position + new Vector3(x, y * -1, 0);
+        laser2.transform.position = transform.position + new Vector3(x * -1,y , 0);
     }
 
     public void LevelDown()

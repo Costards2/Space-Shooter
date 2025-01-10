@@ -5,8 +5,7 @@ using UnityEngine;
 public class EnemyShootLaser : MonoBehaviour
 {
     public GameObject laser;
-    public GameObject laserPosition;
-
+ 
     public float shootTime;
     private float waitTime = 0f;
 
@@ -16,8 +15,8 @@ public class EnemyShootLaser : MonoBehaviour
         {
             GameObject ls = Instantiate(laser);
 
-            ls.transform.position = laserPosition.transform.position;
-            ls.transform.rotation = laserPosition.transform.rotation;
+            ls.transform.position = transform.position;
+            ls.transform.rotation = transform.rotation;
 
             waitTime = Time.time + shootTime;
         }

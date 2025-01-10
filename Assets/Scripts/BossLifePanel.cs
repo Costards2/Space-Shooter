@@ -20,7 +20,7 @@ public class BossLifePanel : MonoBehaviour
         bossLifeSlider.value = bossLife;
         initialLife = bossLife;
         textBossLife.text = $"{bossLife}";
-        //bossLifePanel.SetActive(false);
+        bossLifePanel.SetActive(false);
     }
 
     // Show Panel with Boss Life
@@ -40,12 +40,18 @@ public class BossLifePanel : MonoBehaviour
 
         if(bossLife < 0)
         {
-            Destroy(boss);
-            bossLifePanel.SetActive(false);
-            CanvasGame.instance.bossActive = false;
+           DestroyBoss();
         }
 
         bossLifeSlider.value = bossLife;
         textBossLife.text = $"{bossLife}";
+    }
+
+    public void DestroyBoss()
+    {
+        boss.GetComponent<BossControler>().InstatiateExplosion();
+        Destroy(boss);
+        bossLifePanel.SetActive(false);
+        CanvasGame.instance.bossActive = false;
     }
 }

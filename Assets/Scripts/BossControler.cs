@@ -5,6 +5,8 @@ using UnityEngine;
 public class BossControler : MonoBehaviour
 {
     public float speed;
+    public GameObject[] lasers;
+    public GameObject explosion;
 
     private bool gotToTheInitialPosition;
     private bool gotToTheLeft;
@@ -14,6 +16,7 @@ public class BossControler : MonoBehaviour
 
     void Start()
     {
+        DeactivateLasers();
         CanvasGame.bossLifePanel.ShowBossLife(gameObject);
     }
 
@@ -25,10 +28,12 @@ public class BossControler : MonoBehaviour
         }
         else if(totalOfMovements < 4)
         {
+            ActivateLasers();
             MoveHorizontaly();
         }
         else
         {
+            DeactivateLasers();
             Rotate();
         }
     }
@@ -89,9 +94,31 @@ public class BossControler : MonoBehaviour
                 CanvasGame.bossLifePanel.DescreaseBossLife(laserPower.damage);
                 Destroy(collision.gameObject);
                 break;
-
-            //case "Player":
-
+            case "Player":
+                CanvasGame.instance.ShowGameOverScreen();
+                break;
         }
+    }
+
+    private void DeactivateLasers()
+    {
+        foreach(var laser in lasers)
+        {
+            laser.SetActive(false);
+        }
+    }
+
+    private void ActivateLasers()
+    {
+        foreach (var laser in lasers)
+        {
+            laser.SetActive(true);
+        }
+    }
+
+    public void InstatiateExplosion()
+    {
+        GameObject newExplosion = Instantiate(explosion);
+        newExplosion.transform.position = transform.position;
     }
 }

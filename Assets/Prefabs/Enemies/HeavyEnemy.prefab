@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 60f3bdf5a7c9d0643aa6ced81c9508d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -186,7 +186,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laser: {fileID: 8964645572971565273, guid: fda69edc9e40043418ff38ffb0e5f3b5, type: 3}
-  laserPosition: {fileID: 6086652058362174694}
   shootTime: 2
 --- !u!1 &6086652058362174694
 GameObject:

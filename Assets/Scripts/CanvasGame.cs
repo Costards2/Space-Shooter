@@ -69,7 +69,6 @@ public class CanvasGame : MonoBehaviour
 
         if(playerLife <= 0)
         {
-            PlayerManager.instance.DestroyPlayer();
             ShowGameOverScreen();
         }
         else
@@ -100,8 +99,9 @@ public class CanvasGame : MonoBehaviour
         }
     }
 
-    private void ShowGameOverScreen()
+    public void ShowGameOverScreen()
     {
+        KillPlayer();
         topPanel.SetActive(false);
         gameOverPanel.SetActive(true);
         txtScoreEndGame.text = $"{gameScore}";
@@ -117,5 +117,10 @@ public class CanvasGame : MonoBehaviour
     public void ReStartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void KillPlayer()
+    {
+        PlayerManager.instance.DestroyPlayer();
     }
 }
