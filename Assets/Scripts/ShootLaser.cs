@@ -29,6 +29,8 @@ public class ShootLaser : MonoBehaviour
 
     private void Shoot()
     {
+        AudioManager.instance.PlayLaserAudio();
+
         GameObject ls = Instantiate(laser);
         ls.transform.position = transform.position + Vector3.up;
 

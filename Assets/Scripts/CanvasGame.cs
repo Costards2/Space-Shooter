@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -25,6 +26,8 @@ public class CanvasGame : MonoBehaviour
     private int gameScore;
 
     public bool bossActive;
+
+    public ScreenLimits screenLimits;
 
     public int GameLevel
     {
@@ -55,6 +58,22 @@ public class CanvasGame : MonoBehaviour
 
         topPanel.SetActive(true);
         gameOverPanel.SetActive(false);
+
+        // Getting Screen Bounderies
+        Vector3 leftTop = Camera.main.ViewportToWorldPoint(new Vector3(0.0f, 1.0f, Camera.main.nearClipPlane));
+        Vector3 rightbase = Camera.main.ViewportToWorldPoint(new Vector3(1.0f, 0.0f, Camera.main.nearClipPlane));
+
+        screenLimits = new ScreenLimits();
+        screenLimits.leftLimit = leftTop.x;
+        screenLimits.topLimit = leftTop.y + 1.5f;
+        screenLimits.rightLimit = rightbase.x;
+        screenLimits.bottomLimit = rightbase.y;
+
+        CanvasLoading.instance.HideLoadingPNL();
+
+        HideCursor();
+
+        AudioManager.instance.PlayGameAudio();
     }
 
     public void IncreaseScore(int score)
@@ -79,11 +98,6 @@ public class CanvasGame : MonoBehaviour
         }
     }
   
-    void Update()
-    {
-        
-    }
-
     IEnumerator IncreaseDificulty()
     {
         while (true)
@@ -101,6 +115,7 @@ public class CanvasGame : MonoBehaviour
 
     public void ShowGameOverScreen()
     {
+        ShowCursor();
         KillPlayer();
         topPanel.SetActive(false);
         gameOverPanel.SetActive(true);
@@ -122,5 +137,15 @@ public class CanvasGame : MonoBehaviour
     private void KillPlayer()
     {
         PlayerManager.instance.DestroyPlayer();
+    }
+
+    public void ShowCursor()
+    {
+        Cursor.visible = true;
+    }
+
+    public void HideCursor()
+    {
+        Cursor.visible = false;
     }
 }

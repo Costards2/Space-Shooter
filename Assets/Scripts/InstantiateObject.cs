@@ -15,12 +15,16 @@ public class InstantiateObject : MonoBehaviour
 
     public bool powerUpObject;
 
+    protected ScreenLimits screenLimits;
+
     void Start()
     {
         if (waitFirst)
         {
             waitTime = Time.time + timeToAppear;
         }
+
+        screenLimits = CanvasGame.instance.screenLimits;
     }
 
     void Update()
@@ -30,8 +34,8 @@ public class InstantiateObject : MonoBehaviour
         if (Time.time > waitTime)
         {
             instatiatedObject = Instantiate(objectToInstantiate);
-            float positionX = Random.Range(-3.5f, 3.5f);
-            instatiatedObject.transform.position = new Vector3(positionX, initialPositionY, 0);
+            float positionX = Random.Range(screenLimits.leftLimit, screenLimits.rightLimit);
+            instatiatedObject.transform.position = new Vector3(positionX, screenLimits.topLimit, 0);
             waitTime = Time.time + timeToAppear;
         }
     }

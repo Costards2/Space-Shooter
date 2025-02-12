@@ -20,6 +20,7 @@ public class PowerUpLaserPower : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
+            AudioManager.instance.PlayPowerUpAudio();
             PlayerManager.instance.EnableLaserLevel(level);
             Destroy(gameObject);
         }

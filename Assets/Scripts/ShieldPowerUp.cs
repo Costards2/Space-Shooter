@@ -8,6 +8,7 @@ public class ShieldPowerUp : MonoBehaviour
     {
         if(collision.gameObject.tag.Equals("Player"))
         {
+            AudioManager.instance.PlayPowerUpAudio();
             PlayerManager.playerShield.ActivateShield();
             Destroy(gameObject);
         }

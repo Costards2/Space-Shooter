@@ -14,10 +14,14 @@ public class BossControler : MonoBehaviour
     private int totalOfMovements = 0;
     private float targetAngle = 90;
 
+    private ScreenLimits screenLimits;
+
     void Start()
     {
         DeactivateLasers();
         CanvasGame.bossLifePanel.ShowBossLife(gameObject);
+
+        screenLimits = CanvasGame.instance.screenLimits;
     }
 
     void Update()
@@ -52,9 +56,9 @@ public class BossControler : MonoBehaviour
     {
         if (!gotToTheLeft)
         {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(-1.3f, 0, 0), speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(screenLimits.leftLimit + 2.88f, 0, 0), speed * Time.deltaTime);
 
-            if (Vector3.Distance(transform.position, new Vector3(-1.3f, 0, 0)) < 0.001f)
+            if (Vector3.Distance(transform.position, new Vector3(screenLimits.leftLimit + 2.88f, 0, 0)) < 0.001f)
             {
                 gotToTheLeft = true;
                 totalOfMovements++;
@@ -63,9 +67,9 @@ public class BossControler : MonoBehaviour
         else
         {
             // Move to the right
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(1.3f, 0, 0), speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(screenLimits.rightLimit - 2.88f, 0, 0), speed * Time.deltaTime);
 
-            if (Vector3.Distance(transform.position, new Vector3(1.3f, 0, 0)) < 0.001f)
+            if (Vector3.Distance(transform.position, new Vector3(screenLimits.rightLimit - 2.88f, 0, 0)) < 0.001f)
             {
                 gotToTheLeft = false;
                 totalOfMovements++;

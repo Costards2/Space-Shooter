@@ -21,14 +21,14 @@ public class InstantiateObjectsSimutaneously : InstantiateObject
 
     IEnumerator InstatiateObjectsSimutaneously()
     {
-        float xPosition = Random.Range(-3.5f, 3.5f);
+        float xPosition = Random.Range(screenLimits.leftLimit, screenLimits.rightLimit);
         totalInstantiated = 0;
 
         do
         {
             yield return new WaitForSeconds(instatiateTime);
             GameObject instatiatedObeject = Instantiate(objectToInstantiate);
-            instatiatedObeject.transform.position = new Vector3(xPosition, 8.5f, 0);
+            instatiatedObeject.transform.position = new Vector3(xPosition, screenLimits.topLimit + 7, 0);
             totalInstantiated++;
         }
         while (totalInstantiated <= maxObjects);

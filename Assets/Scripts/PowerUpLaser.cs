@@ -8,6 +8,7 @@ public class PowerUpLaser : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
+            AudioManager.instance.PlayPowerUpAudio();
             PlayerManager.shootLaser.LevelUp();
             Destroy(gameObject);
         }

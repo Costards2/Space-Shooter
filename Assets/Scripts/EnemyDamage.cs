@@ -23,11 +23,6 @@ public class EnemyDamage : MonoBehaviour
         spriteRenderer.sprite = enemiesSprites[gameLevel + 1];
     }
 
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         switch (collision.gameObject.tag) 
@@ -53,6 +48,7 @@ public class EnemyDamage : MonoBehaviour
 
     public void DestroyEnemy()
     {
+        AudioManager.instance.PlayExploxionAudio();
         CanvasGame.instance.IncreaseScore((int)enemiesLifes[gameLevel]);
         GameObject goExplosion = Instantiate(explosion);
         goExplosion.transform.position = transform.position;

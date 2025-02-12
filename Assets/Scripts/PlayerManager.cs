@@ -31,6 +31,8 @@ public class PlayerManager : MonoBehaviour
 
     public void DestroyPlayer()
     {
+        AudioManager.instance.PlayExploxionAudio();
+
         GameObject go = Instantiate(explosion);
         go.transform.position = transform.position;
 

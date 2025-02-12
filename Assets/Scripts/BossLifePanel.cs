@@ -49,6 +49,7 @@ public class BossLifePanel : MonoBehaviour
 
     public void DestroyBoss()
     {
+        AudioManager.instance.PlayExploxionAudio();
         boss.GetComponent<BossControler>().InstatiateExplosion();
         Destroy(boss);
         bossLifePanel.SetActive(false);
