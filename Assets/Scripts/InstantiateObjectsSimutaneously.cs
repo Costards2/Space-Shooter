@@ -21,7 +21,7 @@ public class InstantiateObjectsSimutaneously : InstantiateObject
 
     IEnumerator InstatiateObjectsSimutaneously()
     {
-        float xPosition = Random.Range(screenLimits.leftLimit + 0.15f, screenLimits.rightLimit - 0.15f);
+        float xPosition = Random.Range(screenLimits.leftLimit + 0.5f, screenLimits.rightLimit - 0.15f);
         totalInstantiated = 0;
 
         do
