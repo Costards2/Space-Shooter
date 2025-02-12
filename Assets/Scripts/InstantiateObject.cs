@@ -34,7 +34,7 @@ public class InstantiateObject : MonoBehaviour
         if (Time.time > waitTime)
         {
             instatiatedObject = Instantiate(objectToInstantiate);
-            float positionX = Random.Range(screenLimits.leftLimit, screenLimits.rightLimit);
+            float positionX = Random.Range(screenLimits.leftLimit + 0.15f, screenLimits.rightLimit - 0.15f);
             instatiatedObject.transform.position = new Vector3(positionX, screenLimits.topLimit, 0);
             waitTime = Time.time + timeToAppear;
         }
