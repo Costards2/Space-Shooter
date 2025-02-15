@@ -102,7 +102,12 @@ public class CanvasGame : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(timeDificulty);
-            gameLevel++;
+
+            if(gameLevel < 8)
+            {
+                gameLevel++;
+            }
+            
             if(gameLevel == 8)
             {
                 gameLevelText.text = $"Nv. MAX";

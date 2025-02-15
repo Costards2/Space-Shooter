@@ -20,7 +20,14 @@ public class EnemyDamage : MonoBehaviour
         gameLevel = CanvasGame.instance.GameLevel;
 
         life = enemiesLifes[gameLevel];
-        spriteRenderer.sprite = enemiesSprites[gameLevel + 1];
+        if(gameLevel < 8) 
+        {
+            spriteRenderer.sprite = enemiesSprites[gameLevel + 1];
+        }
+        else
+        {
+            spriteRenderer.sprite = enemiesSprites[gameLevel];
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
